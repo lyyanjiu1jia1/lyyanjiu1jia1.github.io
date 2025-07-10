@@ -3,45 +3,426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>Yang Liu's Bio</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --card-background: #fff;
+            --border-color: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
+
         header {
-            background: #f4f4f4;
-            padding: 20px;
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-image: url('portrait.jpeg');
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .profile-info h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .profile-info p {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        nav {
+            margin: 20px 0;
             text-align: center;
         }
+
+        nav a {
+            margin: 0 15px;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: white;
+            background-color: var(--secondary-color);
+        }
+
         main {
-            padding: 20px 0;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
         }
-        footer {
-            background: #f4f4f4;
-            text-align: center;
+
+        .sidebar {
+            width: 320px;
+            background-color: var(--sidebar-background);
             padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+            margin-left: 20px;
+        }
+
+        .sidebar-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 0px;
+            margin-left: -20px;
+            border-bottom: 1.5px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+
+        .sidebar-section h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            margin-left: -20px;
+            padding-bottom: 10px;
+        }
+
+        .content {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: rgba(8, 76, 128, 0.86);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-card,
+        .publication-card {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover,
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .education-item {
+             margin-bottom: 25px;
+             padding-bottom: 15px;
+             border-bottom: 1px solid var(--border-color);
+         }
+
+         .education-item:last-child {
+             border-bottom: none;
+             margin-bottom: 0;
+             padding-bottom: 0;
+         }
+
+         .education-item h3 {
+             color: var(--secondary-color);
+             margin-bottom: 5px;
+         }
+         #experience h3 {
+             color: var(--secondary-color);
+             margin-bottom: 5px;
+         }
+
+         .project-card h3,
+         .publication-card h3 {
+             color: var(--secondary-color);
+             margin-bottom: 5px;
+         }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+            color: #666;
+        }
+
+        .back-to-top {
             position: fixed;
-            bottom: 0;
-            width: 100%;
-            left: 0;
+            bottom: 100px;
+            right: 100px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My GitHub Page</h1>
+        <div class="profile-container">
+            <div class="profile-photo"></div>
+            <div class="profile-info">
+                <h1>Yang Liu</h1>
+                <p>Senior Research Engineer and Tech Lead at <a href="https://www.bytedance.com/en/">ByteDance</a></p>
+                <p><a href="https://www.linkedin.com/in/yang-liu-from-thu/">LinkedIn</a> | <a href="https://scholar.google.com/citations?user=T7tUkdgAAAAJ&hl=en">Google Scholar</a></p>
+            </div>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#employment">Employment</a>
+            <a href="#experience">Experience</a>
+            <a href="#publication">Publication</a>
+        </nav>
     </header>
+
     <main>
-        <h2>About Me</h2>
-        <p>This is a placeholder for the main content of your GitHub page. You can update this section with information about yourself, your projects, or anything else you'd like to share.</p>
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h1>Yang Liu</h1>
+            </div>
+            <div class="sidebar-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: clarkfromthu@gmail.com</li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Working Direction</h3>
+                <ul>
+                    <li>Generative AI & Machine Learning Learning</li>
+                    <li>Information System Security</li>
+                    <li>Privacy & Data Protection</li>
+                    <li>Cloud-Native & Modern Distributed Architecture</li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Occupational Skill</h3>
+                <ul>
+                    <li>Generative AI, Agent and Multi-Agent safety and security (threat modeling, countermeasures)</li>
+                    <li>Machine learning & deep learning</li>
+                    <li>Privacy-preserving computing platform (federated learning, multi-party secure computation, differential privacy and modern cryptography)</li>
+                </ul>
+                <ul>
+                    <li>Cloud-native architecture and SRE tooling</li>
+                    <li>Large-scale distributed computing (Parameter Server, MapReduce, Ray)</li>
+                    <li>Design patterns and data structures & algorithms</li>
+                    <li>Programming in Python, Go, C++</li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="content">
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <p>I am a seasoned security professional with extensive experience in the fields of AI security, data privacy, and privacy-preserving computing. Currently, I serve as a TechLead in the Security Research Department at ByteDance, where I lead initiatives in LLM and LLM Agent security, as well as secure machine learning infrastructures.</p>
+
+                <p>Throughout my career, I have led numerous key projects, including the development of security countermeasures for LLM Agent and LLM safety and security, and secure machine learning infrastructures. These projects have been widely applied both within the companies I've worked for and in commercial scenarios, covering industries such as finance, automotive, tourism, and government.</p>
+
+                <p>I hold a Ph.D. in Engineering and Computer Science from The Australian National University where my research focused on acceleration and privacy protection in distributed computing, and a Bachelor's degree in Electronic Engineering from Tsinghua University. I have published over 20 academic papers, with more than 8 as first or corresponding author in top journals/conferences like IEEE/ACM Trans. on Networking and IJCAI, and hold dozons of patents related to large language models, security and privacy, and AI infra.</p>
+            </section>
+
+            <section id="education" class="section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Ph.D. in Engineering and Computer Science</h3>
+                    <p><a href="https://www.anu.edu.au/">The Australian National University</a>, Australia | 2015 - 2019</p>
+                </div>
+                <div class="education-item">
+                    <h3>Bachelor's Degree in Electronic Engineering</h3>
+                    <p><a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, China | 2011 - 2015</p>
+                </div>
+            </section>
+
+            <section id="employment" class="section">
+                <h2>Employment</h2>
+                <div class="employment-card">
+                    <h3><a href="https://www.bytedance.com/en/">ByteDance</a></h3>
+                    <p>Senior Research Engineer and Techlead, Security Department | 2020 - Present</p>
+                    <p>Lead LLM and LLM Agent security, secure machine learning infrastructures initiatives. Plan technical direction and drive business collaborations. Technical system design and key component implementation. Oversee system deployment and ensure product shipment.</p>
+                </div>
+                <div class="employment-card">
+                    <h3><a href="https://www.tencent.com/en-us/">Tencent</a></h3>
+                    <p>Senior Application Researcher, Tencent Cloud | 2019 - 2020</p>
+                    <p>Led R&D of Tencent Cloud's privacy computing algorithm system, using AI and cryptography to enable secure cross-domain data services.</p>
+                </div>
+            </section>
+            
+            <section id="experience" class="section">
+                <h2>Experience</h2>
+
+                <h3>LLM Agent Security Project | 2024.9 - Present</h3>
+                <p><strong>Role</strong> Technical Lead (Team Size: < 10 people)</p>
+                <p><strong>Background</strong> Addressing the increased security risks of LLM Agent caused by its complex architecture, interaction mechanisms, and characteristics like untrusted environment interaction and ambiguous information boundaries, which expand the system's attack surface.</p>
+                <p><strong>Key Achievement</strong></p>
+                <li>Launched the AgentArmor protection product v1.X, achieving X0% TPR @ 0.X% FPR in international authoritative benchmark tests, with a significantly lower impact on LLM Agent function utility compared to current academic SOTA solutions.</li>
+                <li>Made breakthroughs in applying program analysis and information flow control technologies to LLM Agent security protection.</li>
+                <li>Included in a company's LLM Agent cloud ecosystem as a key security projects and obtained formal promotion opportunities.</li>
+
+                <h3>LLM Security Project | 2023.12 - 2024.12</h3>
+                <p><strong>Role</strong> Technical Lead (Team Size: < 10 people)</p>
+                <p><strong>Background</strong> Mitigating multiple security risks faced by LLM in model training, parameter fine-tuning, and inference applications, such as prompt attacks, sensitive information leakage, and model hallucinations, which threaten business system security compliance and stable operation.</p>
+                <p><strong>Key Achievement</strong></p>
+                <li>Developed a large model firewall product system, including online strategy, active learning, and security operation systems, providing one-stop security protection with excellent performance (X0% TPR @ 0.X% FPR), high efficiency (1X0ms @ P99 response speed), and adaptability to multi-scenario and multi-modal applications.</li>
+                <li>Achieved technical breakthroughs in model hallucination detection based on AI interpretability, face editing and synthesis, and parallel replacement desensitization.</li>
+                <li>Completed the 0-100 process from technical verification to large-scale application, supporting over X0 internal business scenarios with daily calls exceeding X0000K+ and converting over X0 ToB clients in commercialization.</li>
+
+                <h3>Privacy-Computing-Driven Data Sharing | 2020.12 - Present</h3>
+                <p><strong>Role</strong> Technical Lead (Team Size: < 15 people)</p>
+                <p><strong>Background</strong> Responding to the balance between privacy and utility in the marketization of data elements, meeting the significant demand for secure circulation and sharing of highly sensitive and valuable user data among internal downstream business departments and external cooperation institutions in scenarios such as new customer recommendation, precision marketing, and account risk control.</p>
+                <p><strong>Key Achievement</strong></p>
+                            <li>Internally, covered over X00 business scenarios, involved X0+ business lines, completed over X00 effective risk reduction and compliance work orders, achieved X0% coverage of privacy computing technology in "risk reduction work orders", optimized processes (reduced X approval links), strengthened compliance (technical verification meets privacy regulations), and improved data circulation efficiency.</li>
+                            <li>Externally, delivered over X00 ToB projects with an annual revenue of XXX million.</li>
+                    <li>
+                        Developed cloud-native privacy platform P, supporting BI query and AI tasks with federated learning, MPC, etc. Features high throughput and low latency, e.g., 10B data intersection in X0 mins, 100ms federated call.</li>
+                    <li>
+                        Innovated in cross-domain synthetic data, federated large model finetuning, user group insights, asynchronous federated DL, and cloud-native systems.</li>
+                    </li>
+            </section>
+            
+            <section id="publication" class="section">
+                <h2>Publication</h2>
+                <div class="publication-card">
+                    <h3>SAP: Privacy-Preserving Fine-Tuning on Language Models with Split-and-Privatize Framework</h3>
+                    <p>International Joint Conference on Artificial Intelligence (IJCAI), 2025</p>
+                    <p>The paper proposes the Split-and-Privatize (SAP) framework, which integrates split learning and differential privacy to address privacy leakage risks in Model-as-a-Service (MaaS) based Parameter-Efficient Fine-Tuning (PEFT). It also introduces the Contributing-Token-Identification (CTI) method to balance model utility and privacy. Experiments show that SAP achieves a 65% improvement in empirical privacy with only a 1% degradation in model performance on the Stanford Sentiment Treebank dataset, outperforming state-of-the-art baselines.</p>
+                    <p><a href="https://arxiv.org/pdf/2312.15603">Read more</a></p>
+                </div>
+                <div class="publication-card">
+                    <h3>HALUPROBE: Understanding and Detecting Hallucinations in Large Language Models Through Internal State Analysis</h3>
+                    <p>arXiv preprint, 2025</p>
+                    <p>The paper introduces HALUPROBE, a framework that systematically extracts internal states from large language model inference to understand and detect hallucinations. It divides the LLM inference process into understanding, query, and generation stages, extracting 8 features to analyze hallucination sources. Experiments show that attention-based features like Lookback Ratio and Attention Entropy effectively distinguish hallucinated outputs, with the Sliced Window token selection strategy achieving up to 87% accuracy on the HaluEval dataset. The framework also explores the impact of RAG on inference and reveals limitations in feature transferability across datasets.</p>
+                    <p><a href="https://arxiv.org/pdf/2502.13490">Read more</a></p>
+                </div>
+                <div class="publication-card">
+                    <h3>Clique Gossiping</h3>
+                    <p>IEEE/ACM Transactions on Networking, 2019</p>
+                    <p>The paper proposes and investigates a framework for clique gossip protocols. As complete subnetworks, the existence of cliques is ubiquitous in various social, computer, and engineering networks. By clique gossiping, nodes interact with each other along a sequence of cliques. Clique-gossip protocols are defined as arbitrary linear node interactions where node states are vectors evolving as linear dynamical systems. Such protocols become clique-gossip averaging algorithms when node states are scalars under averaging rules. The paper generalizes the classical notion of line graph to capture the essential node interaction structure induced by both the underlying network and the specific clique sequence. It proves a fundamental eigenvalue invariance principle for periodic clique-gossip protocols, which implies that any permutation of the clique sequence leads to the same spectrum for the overall state transition when the generalized line graph contains no cycle. The paper also proves that for a network with n nodes, cliques with smaller sizes determined by factors of n can always be constructed leading to finite-time convergent clique-gossip averaging algorithms, provided n is not a prime number. Additionally, the acceleration effects of clique-gossiping are illustrated via numerical examples.</p>
+                    <p><a href="https://ieeexplore.ieee.org/document/8906173">Read more</a></p>
+                </div>
+                <div class="publication-card">
+                    <h3>Network Flows that Solve Least Squares for Linear Equations</h3>
+                    <p>Automatica, 2020</p>
+                    <p>The paper presents a first-order distributed continuous-time algorithm for computing the least-squares solution to a linear equation over networks. It provides convergence results for fixed graphs when the solution is unique, using a nonintegrable and diminishing step size, and establishes the exact rate of convergence for various step size choices. For non-unique solutions, convergence to one such solution is proved for constantly connected switching graphs with square integrable step size, and for uniformly jointly connected switching graphs under boundedness of system states. Numerical examples validate the results and illustrate the impact of step size on convergence speed.</p>
+                    <p><a href="https://www.sciencedirect.com/science/article/abs/pii/S000510982030306X">Read more</a></p>
+                </div>
+                <div class="publication-card">
+                    <h3>An Arrow-Hurwicz-Uzawa Type Flow as Least Squares Solver for Network Linear Equations</h3>
+                    <p>Automatica, 2019</p>
+                    <p>The paper presents distributed continuous and discrete-time algorithms for solving least squares problems in networked linear equations. It introduces an Arrow-Hurwicz-Uzawa type flow, establishing necessary and sufficient conditions for exponential convergence to the least squares solution. The framework is validated across various graph structures (path, star, ring graphs) and demonstrates surprising performance in switching networks, where high-frequency switching enables approximate solutions even when individual graphs fail. Numerical examples confirm exponential convergence rates under the derived conditions.</p>
+                    <p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0005109818304813">Read more</a></p>
+                </div>
+            </section>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2024 My GitHub Page. All rights reserved.</p>
+        <p>&copy; 2025 Yang Liu. All rights reserved.</p>
     </footer>
+    <a href="#top" class="back-to-top" id="backToTop">&uarr;</a>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    </script>
 </body>
 </html>
