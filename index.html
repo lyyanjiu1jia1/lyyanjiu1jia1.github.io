@@ -530,6 +530,13 @@
             rightNav.style.display = "none";
         }
     }
+// Initialize elements to be hidden
+window.addEventListener('DOMContentLoaded', () => {
+    const backToTop = document.querySelector('.back-to-top');
+    const rightNav = document.querySelector('.right-nav');
+    backToTop.style.display = "none";
+    rightNav.style.display = "none";
+});
 </script>
 </body>
 </html>
