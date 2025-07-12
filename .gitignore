@@ -1,0 +1,10 @@
+# Logs
+logs
+*.log
+nohup.out
+
+# Images
+*.jpeg
+*.jpg
+*.png
+*.gif
