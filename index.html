@@ -14,7 +14,8 @@
             --border-color: #ddd;
         }
 
-        a:link, a:visited {
+        a:link,
+        a:visited {
             color: #0e0235;
             text-decoration: underline;
         }
@@ -106,7 +107,7 @@
             background-color: var(--sidebar-background);
             padding: 10px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 20px;
             height: fit-content;
@@ -136,7 +137,7 @@
             background-color: var(--card-background);
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .section {
@@ -162,48 +163,48 @@
         .project-card:hover,
         .publication-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .education-item {
-             margin-bottom: 25px;
-             padding-bottom: 15px;
-             border-bottom: 1px solid var(--border-color);
-         }
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-         .education-item:last-child {
-             border-bottom: none;
-             margin-bottom: 0;
-             padding-bottom: 0;
-         }
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
 
-         .education-item h3 {
-             color: var(--secondary-color);
-             margin-bottom: 5px;
-         }
+        .education-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
 
 
 
-         .skill-item h3 {
-             color: var(--secondary-color);
-             margin-bottom: 5px;
-         }
-         
-         #experience h3 {
-             color: var(--secondary-color);
-             margin-bottom: 5px;
-         }
+        .skill-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
 
-         #employment h3 {
-             color: var(--secondary-color);
-             margin-bottom: 5px;
-         }
+        #experience h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
 
-         .project-card h3,
-         .publication-card h3 {
-             color: var(--secondary-color);
-             margin-bottom: 5px;
-         }
+        #employment h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .project-card h3,
+        .publication-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
 
         footer {
             text-align: center;
@@ -227,7 +228,7 @@
             justify-content: center;
             text-decoration: none;
             font-size: 1.8rem;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
             transition: all 0.3s;
             text-align: center;
             line-height: 1.7;
@@ -236,7 +237,7 @@
         .back-to-top:hover {
             background-color: var(--primary-color);
             transform: translateY(-3px);
-            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
         }
 
         .social-links {
@@ -277,6 +278,7 @@
             flex-direction: column;
             gap: 10px;
         }
+
         .right-nav a {
             background-color: var(--secondary-color);
             color: white;
@@ -288,10 +290,11 @@
             justify-content: center;
             text-decoration: none;
             font-size: 0.9rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s;
             text-align: center;
         }
+
         .right-nav a:hover {
             background-color: var(--primary-color);
         }
@@ -302,11 +305,11 @@
         }
     </style>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.right-nav a');
 
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
@@ -326,6 +329,7 @@
         });
     </script>
 </head>
+
 <body>
     <header>
         <div class="profile-container">
@@ -338,11 +342,16 @@
             </div> -->
 
             <div class="profile-photo"></div>
-            
+
             <div class="profile-info">
                 <h1>Yang Liu</h1>
                 <p>Senior Research Engineer and Tech Lead at <a href="https://www.bytedance.com/en/">ByteDance</a></p>
-                <p><a href="https://scholar.google.com/citations?user=T7tUkdgAAAAJ&hl=en">Google Scholar</a> | <a href="https://www.linkedin.com/in/yang-liu-from-thu/">LinkedIn</a></p>
+                <p><a> Australian Permanent Resident, CISSP Holder
+                    </a> </p>
+                <p><a
+                        href="https://scholar.google.com/citations?user=T7tUkdgAAAAJ&hl=en">Google Scholar</a> <span
+                        style="font-style: normal;">|</span> <a
+                        href="https://www.linkedin.com/in/yang-liu-from-thu/">LinkedIn</a></p>
             </div>
         </div>
         <nav>
@@ -424,7 +433,7 @@
                     <p>Led R&D of Tencent Cloud's privacy computing algorithm system, using AI and cryptography to enable secure cross-domain data services.</p>
                 </div>
             </section>
-            
+
             <section id="experience" class="section">
                 <h2>Experience</h2>
 
@@ -444,37 +453,37 @@
                 <p><strong>Key Achievement</strong> Addressed internal compliance across X00+ business scenarios, delivered X00 external ToB projects, developed high-performance cloud-native privacy platform, and innovated in cross-domain and federated model tech.</p>
 
             </section>
-            
+
             <section id="skill" class="section">
                 <h2>Skill</h2>
-                <div class="skill-item"> 
+                <div class="skill-item">
                     <h3>Generative AI & Machine Learning</h3>
                     <p>
                     LLM (Large Language Model), LLM Agent, Multi-Agent System, BERT, Transformer, Recommendation System, Finanal Risk Management, XGBoost, Trust and Explainable AI, AI Safety and Security.
                     </p>
-                </div> 
-                <div class="skill-item"> 
-                    <h3>Privacy & Data Protection</h3> 
+                </div>
+                <div class="skill-item">
+                    <h3>Privacy & Data Protection</h3>
                     <p>
                     Differential Privacy, Homomorphic Encryption, Secure Multi-Party Computation, Federated Learning & Analytics, Privacy-Preserving Machine Learning, Data Masking, Anonymization, Pseudonymization, Data Encryption, Privacy by Design, Data Minimization, Data Governance
                     </p>
-                </div> 
-                <div class="skill-item"> 
-                    <h3>Information System Security</h3> 
+                </div>
+                <div class="skill-item">
+                    <h3>Information System Security</h3>
                     <p>
                     Threat Modelling, Risk Assessment, Cryptography, Cloud Security, Defense In Depth, Authentication, Authorization, Data Loss Prevention (DLP), Multi-layered Security.
                     </p>
-                </div> 
-                <div class="skill-item"> 
-                    <h3>Cloud-Native & Modern Distributed Systems</h3> 
+                </div>
+                <div class="skill-item">
+                    <h3>Cloud-Native & Modern Distributed Systems</h3>
                     <p>
                     Spark, Parameter Server, Ray, Kafka, Redis, Hadoop, Kubernetes, Docker, Microservices, Serverless Computing, Function as a Service (FaaS), API GatewayLoad Balancing, Cache, Observability.
                     </p>
                     <p>System Architecture Design, Design Pattern, Data Structure, Algorithm.</p>
                     <p>Programming in Python, Go, C++</p>
-                </div> 
+                </div>
             </section>
-            
+
             <section id="publication" class="section">
                 <h2>Publication</h2>
                 <div class="publication-card">
@@ -534,32 +543,33 @@
 
         backToTopButton.addEventListener('click', (e) => {
             e.preventDefault();
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
-<script>
-    window.onscroll = function() {
-        scrollFunction();
-    };
+    <script>
+        window.onscroll = function () {
+            scrollFunction();
+        };
 
-    function scrollFunction() {
-        const backToTop = document.querySelector('.back-to-top');
-        const rightNav = document.querySelector('.right-nav');
-        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-            backToTop.style.display = "block";
-            rightNav.style.display = "flex";
-        } else {
+        function scrollFunction() {
+            const backToTop = document.querySelector('.back-to-top');
+            const rightNav = document.querySelector('.right-nav');
+            if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+                backToTop.style.display = "block";
+                rightNav.style.display = "flex";
+            } else {
+                backToTop.style.display = "none";
+                rightNav.style.display = "none";
+            }
+        }
+        // Initialize elements to be hidden
+        window.addEventListener('DOMContentLoaded', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            const rightNav = document.querySelector('.right-nav');
             backToTop.style.display = "none";
             rightNav.style.display = "none";
-        }
-    }
-// Initialize elements to be hidden
-window.addEventListener('DOMContentLoaded', () => {
-    const backToTop = document.querySelector('.back-to-top');
-    const rightNav = document.querySelector('.right-nav');
-    backToTop.style.display = "none";
-    rightNav.style.display = "none";
-});
-</script>
+        });
+    </script>
 </body>
+
 </html>
